@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import {Routes,Route} from 'react-router-dom';
+import Home from './Components/Home';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import NewPost from './Components/NewPost';
+import { DataProvider } from './Context/DataContext';
+import About from './Components/About';
+import Profile from './Components/Profile';
+import Nav from './Components/Nav';
+import Missing from './Components/Missing';
+import EditPost from './Components/EditPost';
+import Edit from './Components/Edit';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DataProvider>
+      <Header/>
+      <Nav/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/Post">
+        <Route index element={<NewPost/>}/>
+        <Route path=':id' element={<EditPost/>}/>
+        <Route path='Edit/:id' element={<Edit/>}/>
+        </Route>
+        <Route path="*" element={<Missing/>}/>
+      </Routes>
+      <Footer/>
+      </DataProvider>
     </div>
   );
 }
