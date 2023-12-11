@@ -87,7 +87,7 @@ useEffect(() => {
 },[search,posts])
 
     return(
-        <DataContext.Provider value={{titl,search,setSearch,posts,setposts,handlesubmit,title,setTitle,body,setBody,handledelete,searchResults,handleEdit,EditPost,Edit,setEditTitle
+        <DataContext.Provider value={{navigate,titl,search,setSearch,posts,setposts,handlesubmit,title,setTitle,body,setBody,handledelete,searchResults,handleEdit,EditPost,Edit,setEditTitle
         ,setEditBody,edittitle,editbody}}>
             {children}
         </DataContext.Provider>
